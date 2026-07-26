@@ -66,10 +66,9 @@ body {
     overflow-x: hidden;
 }
 
-img {
+img, svg {
     max-width: 100%;
     height: auto;
-    display: block;
 }
 
 a {
