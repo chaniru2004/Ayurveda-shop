@@ -1,0 +1,8 @@
+{
+  "name": "ayurveda-shop",
+  "version": "1.0.0",
+  "description": "Ayurveda Shop Application",
+  "scripts": {
+    "start": "python3 -m http.server 3000 -d frontend & cd backend && export JAVA_HOME=/Users/chan.nn/Library/Java/JavaVirtualMachines/corretto-22.0.2/Contents/Home && ./mvnw spring-boot:run || mvn spring-boot:run"
+  }
+}

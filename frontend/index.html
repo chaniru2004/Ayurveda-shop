@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thissa වෙද හල | Top Guli Kade</title>
+    <meta name="description"
+        content="Discover ancient wisdom for modern well-being. Shop 100% organic Ayurvedic medicines, Ashwagandha, Triphala, and herbal teas.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Top Announcement Bar -->
+    <div class="announcement-bar">
+        <span>🌿 100% Pure Organic Ayurvedic Formulas</span>
+        <span>🚚 Free Global Shipping on orders over $50</span>
+        <span>⭐ Ayush & GMP Certified Quality</span>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="site-header">
+        <div class="container nav-container">
+            <a href="#" class="brand-logo">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8 0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"
+                        opacity="0.3" />
+                    <path d="M17 8C17 8 13.5 8 12 11.5C10.5 8 7 8 7 8C7 11.5 9.5 14.5 12 16C14.5 14.5 17 11.5 17 8Z" />
+                </svg>
+                <span>Thissa වෙද හල</span>
+            </a>
+
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#ailments" class="nav-link">Ailments</a></li>
+                    <li><a href="#shopSection" class="nav-link">Shop Remedies</a></li>
+                    <li><a href="#quizSection" class="nav-link">Dosha Quiz</a></li>
+                    <li><a href="#learnSection" class="nav-link">Blog & Guide</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <div class="search-box">
+                    <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search remedies, herbs...">
+                </div>
+
+                <button class="icon-btn" onclick="openCartDrawer()" aria-label="Cart">
+                    <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                            d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                    </svg>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section matching sketch -->
+    <section class="hero-section" id="home">
+        <div class="container hero-grid">
+            <div class="hero-text-content">
+                <div class="hero-tagline">
+                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2L15 8L21 9L17 14L18 20L12 17L6 20L7 14L3 9L9 8L12 2Z" />
+                    </svg>
+                    BALANCE YOUR HEALTH, NATURALLY.
+                </div>
+                <h1 class="hero-title">Thissa වෙද හල <span> Top Guli</span> කඩේ</h1>
+                <p class="hero-description">
+                    Discover ancient wisdom for modern well-being. Crafted from pure, potent herbs, standardized plant
+                    extracts, and authentic Vedic formulations.
+                </p>
+
+                <div class="hero-cta">
+                    <a href="#shopSection" class="btn btn-gold">
+                        Shop All Products
+                        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                    </a>
+                    <a href="#quizSection" class="btn btn-outline">Take Dosha Quiz</a>
+                </div>
+
+                <div class="hero-features">
+                    <div class="feature-item">
+                        <svg fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                        </svg>
+                        <span>100% Herbal Extracts</span>
+                    </div>
+                    <div class="feature-item">
+                        <svg fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                        </svg>
+                        <span>No Synthetic Additives</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-image-wrapper">
+                <img src="assets/hero.png" alt="Ayurvedic herbs and spices" class="hero-main-img">
+                <div class="floating-card">
+                    <div class="avatar">🌿</div>
+                    <div class="info">
+                        <strong>Authentic Formulas</strong>
+                        <span>Formulated by Vaidyas</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop By Ailment Section matching sketch -->
+    <section class="section-ailments" id="ailments">
+        <div class="container">
+            <h2 class="section-title">Shop by Ailment</h2>
+            <p class="section-subtitle">Find targeted Ayurvedic remedies tailored to your specific health needs.</p>
+
+            <div class="ailment-grid">
+                <div class="ailment-card active" data-ailment="all" onclick="filterByAilment('all', this)">
+                    <div class="ailment-icon">✨</div>
+                    <div class="ailment-name">All Remedies</div>
+                    <div class="ailment-sub">Complete Catalog</div>
+                </div>
+                <div class="ailment-card" data-ailment="immunity" onclick="filterByAilment('immunity', this)">
+                    <div class="ailment-icon">🛡️</div>
+                    <div class="ailment-name">Immunity Boost</div>
+                    <div class="ailment-sub">Teas & Rasayanas</div>
+                </div>
+                <div class="ailment-card" data-ailment="stress" onclick="filterByAilment('stress', this)">
+                    <div class="ailment-icon">🧘</div>
+                    <div class="ailment-name">Stress Relief</div>
+                    <div class="ailment-sub">Ashwagandha & Calm</div>
+                </div>
+                <div class="ailment-card" data-ailment="digestion" onclick="filterByAilment('digestion', this)">
+                    <div class="ailment-icon">🍃</div>
+                    <div class="ailment-name">Digestion</div>
+                    <div class="ailment-sub">Triphala & Gut Health</div>
+                </div>
+                <div class="ailment-card" data-ailment="skin" onclick="filterByAilment('skin', this)">
+                    <div class="ailment-icon">✨</div>
+                    <div class="ailment-name">Skin & Beauty</div>
+                    <div class="ailment-sub">Kumkumadi & Oils</div>
+                </div>
+                <div class="ailment-card" data-ailment="joint" onclick="filterByAilment('joint', this)">
+                    <div class="ailment-icon">🦴</div>
+                    <div class="ailment-name">Joint & Muscle</div>
+                    <div class="ailment-sub">Pain Balms & Oils</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Products Catalog Section -->
+    <section class="products-section" id="shopSection">
+        <div class="container">
+            <div class="filter-bar">
+                <div>
+                    <h2>Featured Remedies</h2>
+                    <p style="color: var(--color-text-muted); font-size: 0.9rem;">Handcrafted pure herbal solutions</p>
+                </div>
+
+                <div class="dosha-filters">
+                    <span style="font-size: 0.85rem; font-weight: 600; align-self: center; margin-right: 0.5rem;">Filter
+                        by Dosha:</span>
+                    <button class="dosha-btn active" data-dosha="all" onclick="filterByDosha('all', this)">All</button>
+                    <button class="dosha-btn" data-dosha="vata" onclick="filterByDosha('vata', this)">Vata</button>
+                    <button class="dosha-btn" data-dosha="pitta" onclick="filterByDosha('pitta', this)">Pitta</button>
+                    <button class="dosha-btn" data-dosha="kapha" onclick="filterByDosha('kapha', this)">Kapha</button>
+                </div>
+            </div>
+
+            <!-- Dynamic Grid -->
+            <div class="product-grid" id="productGrid"></div>
+        </div>
+    </section>
+
+    <!-- Interactive Dosha Diagnostic Quiz Section -->
+    <section class="dosha-quiz-section" id="quizSection">
+        <div class="container">
+            <div class="quiz-container">
+                <div class="quiz-header">
+                    <h2>Find Your Dosha & Prakriti</h2>
+                    <p style="color: rgba(255,255,255,0.75);">Discover your unique mind-body constitution and receive
+                        customized remedy recommendations.</p>
+                </div>
+
+                <div id="quizFormBlock">
+                    <div class="quiz-step-indicator">
+                        <div class="step-dot active"></div>
+                        <div class="step-dot active"></div>
+                        <div class="step-dot active"></div>
+                    </div>
+
+                    <div style="margin-bottom: 2rem;">
+                        <h3 style="color: #ffffff; text-align: center; margin-bottom: 1.5rem; font-size: 1.25rem;">1.
+                            How would you describe your body frame & metabolism?</h3>
+                        <div class="quiz-option-grid">
+                            <div class="quiz-option-card" onclick="selectQuizOption('q1', 'vata', this)">
+                                <h4>Light & Slender</h4>
+                                <p>Fast metabolism, cold hands/feet, quick movement</p>
+                            </div>
+                            <div class="quiz-option-card" onclick="selectQuizOption('q1', 'pitta', this)">
+                                <h4>Medium & Athletic</h4>
+                                <p>Strong digestion, warm skin, active temperament</p>
+                            </div>
+                            <div class="quiz-option-card" onclick="selectQuizOption('q1', 'kapha', this)">
+                                <h4>Sturdy & Broad</h4>
+                                <p>Slow digestion, calm nature, deep endurance</p>
+                            </div>
+                        </div>
+
+                        <h3 style="color: #ffffff; text-align: center; margin-bottom: 1.5rem; font-size: 1.25rem;">2.
+                            What is your reaction to stress or pressure?</h3>
+                        <div class="quiz-option-grid">
+                            <div class="quiz-option-card" onclick="selectQuizOption('q2', 'vata', this)">
+                                <h4>Anxiety & Worry</h4>
+                                <p>Mind races, difficulty falling asleep</p>
+                            </div>
+                            <div class="quiz-option-card" onclick="selectQuizOption('q2', 'pitta', this)">
+                                <h4>Irritation & Intensity</h4>
+                                <p>Focused drive, desire to solve immediately</p>
+                            </div>
+                            <div class="quiz-option-card" onclick="selectQuizOption('q2', 'kapha', this)">
+                                <h4>Withdrawal & Calm</h4>
+                                <p>Steady, seeks comfort and quiet space</p>
+                            </div>
+                        </div>
+
+                        <h3 style="color: #ffffff; text-align: center; margin-bottom: 1.5rem; font-size: 1.25rem;">3.
+                            What type of skin condition do you lean towards?</h3>
+                        <div class="quiz-option-grid">
+                            <div class="quiz-option-card" onclick="selectQuizOption('q3', 'vata', this)">
+                                <h4>Dry or Rough Skin</h4>
+                                <p>Requires frequent moisturization</p>
+                            </div>
+                            <div class="quiz-option-card" onclick="selectQuizOption('q3', 'pitta', this)">
+                                <h4>Sensitive or Flush Skin</h4>
+                                <p>Prone to redness or warm spots</p>
+                            </div>
+                            <div class="quiz-option-card" onclick="selectQuizOption('q3', 'kapha', this)">
+                                <h4>Smooth & Oily Skin</h4>
+                                <p>Soft texture, well-hydrated</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center;">
+                        <button class="btn btn-gold" onclick="calculateDoshaResult()">Reveal My Prakriti Result</button>
+                    </div>
+                </div>
+
+                <div class="quiz-result" id="quizResultBlock"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learn & Discover Section (Blog matching sketch) -->
+    <section style="padding: 5rem 0; background: #ffffff;" id="learnSection">
+        <div class="container">
+            <h2 class="section-title">Learn & Discover</h2>
+            <p class="section-subtitle">Explore ancient Ayurvedic wisdom and holistic health guidelines.</p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+                <div style="border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--color-border);">
+                    <img src="assets/hero.png" alt="Understanding Ayurveda"
+                        style="height: 200px; width: 100%; object-fit: cover;">
+                    <div style="padding: 1.5rem;">
+                        <span
+                            style="color: var(--color-accent-gold); font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Article
+                            & Guide</span>
+                        <h3 style="font-size: 1.25rem; margin: 0.5rem 0;">Understanding Ayurveda: The Three Doshas</h3>
+                        <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Discover
+                            ancient wisdom on how Vata, Pitta, and Kapha govern bodily harmony and mental clarity.</p>
+                        <a href="#" style="color: var(--color-primary); font-weight: 700; font-size: 0.9rem;">Read More
+                            →</a>
+                    </div>
+                </div>
+
+                <div style="border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--color-border);">
+                    <img src="assets/tulsi_tea.png" alt="Dinacharya Rituals"
+                        style="height: 200px; width: 100%; object-fit: cover;">
+                    <div style="padding: 1.5rem;">
+                        <span
+                            style="color: var(--color-accent-gold); font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Daily
+                            Rituals</span>
+                        <h3 style="font-size: 1.25rem; margin: 0.5rem 0;">Dinacharya: Daily Ayurvedic Morning Routines
+                        </h3>
+                        <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Simple
+                            morning rituals like warm water infusions, oil pulling, and tongue scraping for immune
+                            vitality.</p>
+                        <a href="#" style="color: var(--color-primary); font-weight: 700; font-size: 0.9rem;">Read More
+                            →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide-out Cart Drawer -->
+    <div class="cart-drawer-overlay" id="cartDrawerOverlay" onclick="closeCartDrawer()">
+        <div class="cart-drawer" onclick="event.stopPropagation()">
+            <div class="cart-header">
+                <h3>Shopping Basket</h3>
+                <button onclick="closeCartDrawer()"
+                    style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--color-primary);">×</button>
+            </div>
+
+            <div class="cart-items-body" id="cartItemsBody"></div>
+
+            <div class="cart-footer">
+                <div class="promo-box">
+                    <input type="text" id="promoInput" class="promo-input" placeholder="Promo Code (HERBAL10)">
+                    <button class="btn btn-outline" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;"
+                        onclick="applyPromoCode()">Apply</button>
+                </div>
+
+                <div class="cart-summary-row">
+                    <span>Subtotal</span>
+                    <span id="cartSubtotal">$0.00</span>
+                </div>
+                <div class="cart-summary-row">
+                    <span>Discount</span>
+                    <span id="cartDiscount" style="color: var(--color-terracotta);">$0.00</span>
+                </div>
+                <div class="cart-summary-row cart-summary-total">
+                    <span>Total Amount</span>
+                    <span id="cartTotal">$0.00</span>
+                </div>
+
+                <button class="btn btn-gold" style="width: 100%; margin-top: 1rem;" onclick="openCheckoutModal()">
+                    Proceed to Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick View Product Modal -->
+    <div class="modal-overlay" id="quickViewOverlay" onclick="closeQuickView()">
+        <div class="modal-container" id="modalContent" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeQuickView()">×</button>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal-overlay" id="checkoutModalOverlay" onclick="closeCheckoutModal()">
+        <div class="modal-container" onclick="event.stopPropagation()" style="max-width: 600px; padding: 2rem;">
+            <button class="modal-close" onclick="closeCheckoutModal()">×</button>
+            <h2 style="margin-bottom: 1.5rem;">Express Checkout</h2>
+
+            <form onsubmit="submitOrder(event)">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                    <div>
+                        <label style="font-size: 0.85rem; font-weight: 600;">First Name</label>
+                        <input type="text" required
+                            style="width: 100%; padding: 0.6rem; border: 1px solid var(--color-border); border-radius: var(--radius-sm);"
+                            placeholder="Aarav">
+                    </div>
+                    <div>
+                        <label style="font-size: 0.85rem; font-weight: 600;">Last Name</label>
+                        <input type="text" required
+                            style="width: 100%; padding: 0.6rem; border: 1px solid var(--color-border); border-radius: var(--radius-sm);"
+                            placeholder="Sharma">
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 1rem;">
+                    <label style="font-size: 0.85rem; font-weight: 600;">Shipping Address</label>
+                    <input type="text" required
+                        style="width: 100%; padding: 0.6rem; border: 1px solid var(--color-border); border-radius: var(--radius-sm);"
+                        placeholder="123 Wellness Ave, Suite 4">
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="font-size: 0.85rem; font-weight: 600;">Payment Method</label>
+                    <select
+                        style="width: 100%; padding: 0.6rem; border: 1px solid var(--color-border); border-radius: var(--radius-sm);">
+                        <option>Credit / Debit Card</option>
+                        <option>UPI / Net Banking</option>
+                        <option>Cash on Delivery</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-gold" style="width: 100%;">
+                    Confirm Order & Pay
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Order Success Modal -->
+    <div class="modal-overlay" id="orderSuccessModalOverlay">
+        <div class="modal-container" style="max-width: 500px; padding: 3rem 2rem; text-align: center;">
+            <div
+                style="width: 70px; height: 70px; background: #e8f3ec; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: var(--color-primary); font-size: 2rem;">
+                ✓
+            </div>
+            <h2>Order Placed Successfully!</h2>
+            <p style="color: var(--color-text-muted); margin: 0.5rem 0 1.5rem;">Thank you for shopping with Ayurveda
+                Veda. Your tracking ID is #AV-${Math.floor(100000 + Math.random() * 900000)}.</p>
+            <button class="btn btn-primary" onclick="closeOrderSuccessModal()">Return to Store</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h3>AYURVEDA VEDA</h3>
+                <p>Authentic herbal remedies formulated according to classic Charaka Samhita and Sushruta Samhita
+                    principles.</p>
+                <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--color-accent-gold-light);">© 2026 Ayurveda
+                    Veda. All rights reserved.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="#ailments">Immunity Remedies</a></li>
+                    <li><a href="#ailments">Stress Relief</a></li>
+                    <li><a href="#ailments">Digestive Health</a></li>
+                    <li><a href="#ailments">Skin & Hair Care</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#quizSection">Prakriti Quiz</a></li>
+                    <li><a href="#learnSection">Ayurveda Blog</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Vaidya</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Herbal Newsletter</h4>
+                <p style="font-size: 0.85rem;">Subscribe for weekly Ayurvedic seasonal wellness tips & 10% off your
+                    first order.</p>
+                <form class="newsletter-form"
+                    onsubmit="event.preventDefault(); showToast('Subscribed to Herbal Newsletter!');">
+                    <input type="email" class="newsletter-input" placeholder="Your email address..." required>
+                    <button type="submit" class="btn btn-gold"
+                        style="padding: 0.6rem 1rem; font-size: 0.85rem;">Join</button>
+                </form>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
