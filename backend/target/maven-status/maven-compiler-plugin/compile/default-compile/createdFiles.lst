@@ -1,5 +1,6 @@
 com/ayurveda/shop/service/DoshaQuizService.class
 com/ayurveda/shop/repository/ProductRepository.class
+com/ayurveda/shop/controller/AdminStatsController$AdminDashboardStats$AdminDashboardStatsBuilder.class
 com/ayurveda/shop/entity/Category.class
 com/ayurveda/shop/controller/OrderController.class
 com/ayurveda/shop/controller/ProductController.class
@@ -12,7 +13,9 @@ com/ayurveda/shop/entity/Order$OrderBuilder.class
 com/ayurveda/shop/controller/DoshaQuizController.class
 com/ayurveda/shop/entity/Product$ProductBuilder.class
 com/ayurveda/shop/entity/DoshaQuizResult$DoshaQuizResultBuilder.class
+com/ayurveda/shop/controller/AdminStatsController.class
 com/ayurveda/shop/entity/DoshaQuizResult.class
 com/ayurveda/shop/entity/Category$CategoryBuilder.class
+com/ayurveda/shop/controller/AdminStatsController$AdminDashboardStats.class
 com/ayurveda/shop/repository/OrderRepository.class
 com/ayurveda/shop/AyurvedaShopBackendApplication.class

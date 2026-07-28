@@ -52,4 +52,7 @@ public class Product {
     private String benefits;
 
     private String dosage;
+
+    @Builder.Default
+    private Integer stock = 50;
 }

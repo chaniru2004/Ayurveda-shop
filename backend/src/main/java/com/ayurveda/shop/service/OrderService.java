@@ -5,6 +5,7 @@ import com.ayurveda.shop.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -15,11 +16,29 @@ public class OrderService {
 
     public Order createOrder(Order order) {
         order.setOrderTrackingNumber("AV-" + UUID.randomUUID().toString().substring(0, 8).toUpperCase());
+        if (order.getStatus() == null || order.getStatus().isEmpty()) {
+            order.setStatus("PENDING");
+        }
         return orderRepository.save(order);
     }
 
     public Order getOrderByTrackingNumber(String trackingNumber) {
         return orderRepository.findByOrderTrackingNumber(trackingNumber)
                 .orElseThrow(() -> new RuntimeException("Order not found with tracking number: " + trackingNumber));
+    }
+
+    public List<Order> getAllOrders() {
+        return orderRepository.findAllByOrderByCreatedAtDesc();
+    }
+
+    public Order updateOrderStatus(Long id, String status) {
+        Order order = orderRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Order not found with id: " + id));
+        order.setStatus(status);
+        return orderRepository.save(order);
+    }
+
+    public void deleteOrder(Long id) {
+        orderRepository.deleteById(id);
     }
 }
