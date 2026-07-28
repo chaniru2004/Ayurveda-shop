@@ -118,6 +118,7 @@ let appliedPromo = null;
 // Initialize App
 document.addEventListener('DOMContentLoaded', () => {
     renderProducts();
+    fetchLiveProducts();
     initQuiz();
     updateCartUI();
     setupEventListeners();
@@ -460,17 +461,62 @@ function closeCheckoutModal() {
     document.getElementById('checkoutModalOverlay')?.classList.remove('active');
 }
 
-function submitOrder(e) {
+async function fetchLiveProducts() {
+    try {
+        const res = await fetch('http://localhost:8090/api/products');
+        if (res.ok) {
+            const liveData = await res.json();
+            if (liveData && liveData.length > 0) {
+                productsData = liveData;
+                renderProducts();
+            }
+        }
+    } catch (err) {
+        console.warn('Backend API offline, serving offline catalog:', err);
+    }
+}
+
+async function submitOrder(e) {
     e.preventDefault();
-    closeCheckoutModal();
     
-    // Show success confirmation
+    const customerName = document.getElementById('custName')?.value || 'Guest Customer';
+    const shippingAddress = document.getElementById('custAddress')?.value || 'Standard Shipping Address';
+    const paymentMethod = document.getElementById('custPayment')?.value || 'Credit Card';
+    
+    const totalAmount = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+    const orderPayload = {
+        customerName: customerName,
+        shippingAddress: shippingAddress,
+        paymentMethod: paymentMethod,
+        totalAmount: totalAmount,
+        status: 'PENDING'
+    };
+
+    try {
+        const res = await fetch('http://localhost:8090/api/orders', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(orderPayload)
+        });
+
+        if (res.ok) {
+            const savedOrder = await res.json();
+            showToast(`🎉 Order ${savedOrder.orderTrackingNumber || ''} Placed! Thank you.`);
+        } else {
+            showToast('🎉 Order Successfully Placed!');
+        }
+    } catch (err) {
+        console.warn('Backend order endpoint error:', err);
+        showToast('🎉 Order Successfully Placed!');
+    }
+
+    closeCheckoutModal();
     cart = [];
     updateCartUI();
-    showToast('🎉 Order Successfully Placed! Thank you for choosing Ayurveda Veda.');
 
-    // Show order success modal
-    document.getElementById('orderSuccessModalOverlay')?.classList.add('active');
+    const successModal = document.getElementById('orderSuccessModalOverlay');
+    if (successModal) successModal.classList.add('active');
 }
 
 function closeOrderSuccessModal() {

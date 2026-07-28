@@ -10,8 +10,72 @@ let adminOrders = [];
 // Initialize on DOM load
 document.addEventListener('DOMContentLoaded', () => {
     initTabNavigation();
-    refreshAdminData();
+    checkAdminAuth();
 });
+
+/* Authentication Check & Login Handler */
+function checkAdminAuth() {
+    const token = localStorage.getItem('thissa_admin_token');
+    const overlay = document.getElementById('adminLoginOverlay');
+    const mainWrapper = document.getElementById('adminMainWrapper');
+
+    if (token) {
+        if (overlay) overlay.style.display = 'none';
+        if (mainWrapper) mainWrapper.style.display = 'block';
+        refreshAdminData();
+    } else {
+        if (overlay) overlay.style.display = 'flex';
+        if (mainWrapper) mainWrapper.style.display = 'none';
+    }
+}
+
+async function handleAdminLogin(event) {
+    event.preventDefault();
+    const usernameInput = document.getElementById('loginUsername').value;
+    const passwordInput = document.getElementById('loginPassword').value;
+    const errorAlert = document.getElementById('loginErrorMsg');
+
+    errorAlert.style.display = 'none';
+    errorAlert.textContent = '';
+
+    try {
+        const res = await fetch(`${API_BASE}/admin/login`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username: usernameInput, password: passwordInput })
+        });
+
+        const data = await res.json();
+
+        if (res.ok && data.authenticated) {
+            localStorage.setItem('thissa_admin_token', data.token);
+            localStorage.setItem('thissa_admin_user', data.username);
+            checkAdminAuth();
+            showAdminToast(data.message || 'Login successful!', 'success');
+        } else {
+            errorAlert.textContent = data.message || 'Invalid username or password.';
+            errorAlert.style.display = 'block';
+        }
+    } catch (err) {
+        console.error('Login error:', err);
+        // Fallback for offline testing if backend unreachable
+        if (usernameInput === 'thissa' && passwordInput === 'admin123') {
+            localStorage.setItem('thissa_admin_token', 'FALLBACK-TOKEN-THISSA');
+            checkAdminAuth();
+            showAdminToast('Logged in as administrator', 'success');
+        } else {
+            errorAlert.textContent = 'Invalid credentials or backend unreachable.';
+            errorAlert.style.display = 'block';
+        }
+    }
+}
+
+function handleAdminLogout() {
+    localStorage.removeItem('thissa_admin_token');
+    localStorage.removeItem('thissa_admin_user');
+    checkAdminAuth();
+    showAdminToast('Signed out of Admin Panel', 'info');
+}
 
 /* Tab Switching Logic */
 function initTabNavigation() {

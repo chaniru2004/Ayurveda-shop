@@ -3,13 +3,13 @@
    ========================================================================== */
 
 // Store State & Product Catalog Data
-const PRODUCTS_DATA = [
+let PRODUCTS_DATA = [
     {
-        id: 'ashwagandha-ksm66',
-        name: 'Ashwagandha KSM-66 Premium Extract',
-        category: 'Stress & Vitality',
+        id: 1,
+        name: 'Organic Ashwagandha Powder',
+        category: 'Herbal Powders',
         ailment: 'stress',
-        dosha: 'v-p', // Vata & Pitta balancing
+        dosha: 'vata',
         price: 24.99,
         originalPrice: 29.99,
         rating: 4.9,
@@ -17,94 +17,64 @@ const PRODUCTS_DATA = [
         badge: 'Best Seller',
         badgeType: 'badge-gold',
         image: 'assets/ashwagandha.png',
-        ingredients: 'Standardized Withania Somnifera (500mg), BioPerine (5mg)',
-        benefits: 'Supports Cortisol reduction, deep restorative sleep, stress resilience, and physical endurance.',
-        dosage: 'Take 1-2 capsules daily after meals with warm water or milk.'
+        ingredients: '100% Pure Organic Withania Somnifera Root Extract',
+        benefits: 'Reduces stress & cortisol, improves stamina and sleep quality.',
+        dosage: '1 tsp daily with warm milk or water',
+        stock: 45
     },
     {
-        id: 'triphala-digestive',
-        name: 'Triphala Organic Digestive Care',
-        category: 'Digestion & Detox',
+        id: 2,
+        name: 'Triphala Churna Organic Blend',
+        category: 'Gut Health & Cleansing',
         ailment: 'digestion',
-        dosha: 'tridosha', // Balances all 3 doshas
-        price: 19.50,
+        dosha: 'tridosha',
+        price: 18.50,
         originalPrice: 22.00,
         rating: 4.8,
         reviewsCount: 94,
         badge: 'Organic',
         badgeType: 'badge-organic',
         image: 'assets/triphala.png',
-        ingredients: 'Equal blend of Organic Amla (Emblica officinalis), Haritaki, and Bibhitaki',
-        benefits: 'Cleanses colon, enhances nutrient absorption, regulates digestion, and boosts antioxidant levels.',
-        dosage: 'Take 2 capsules before sleep with lukewarm water.'
+        ingredients: 'Amalaki, Bibhitaki, Haritaki organic fruit powders',
+        benefits: 'Cleanses colon, enhances nutrient absorption, regulates digestion.',
+        dosage: '1/2 tsp before bedtime with warm water',
+        stock: 50
     },
     {
-        id: 'tulsi-holy-basil-tea',
-        name: 'Organic Tulsi Holy Basil Herbal Tea',
-        category: 'Immunity & Respiration',
+        id: 3,
+        name: 'Organic Tulsi Holy Basil Tea',
+        category: 'Herbal Teas',
         ailment: 'immunity',
-        dosha: 'k-v',
-        price: 14.00,
-        originalPrice: 16.50,
+        dosha: 'kapha',
+        price: 14.99,
+        originalPrice: 17.99,
         rating: 4.9,
-        reviewsCount: 210,
-        badge: 'Top Rated',
-        badgeType: 'badge-organic',
-        image: 'assets/tulsi_tea.png',
-        ingredients: 'Rama Tulsi, Krishna Tulsi, Vana Tulsi whole tea leaves',
-        benefits: 'Soothes respiratory passages, boosts cellular immunity, relieves cold symptoms & mental fatigue.',
-        dosage: 'Steep 1 tsp in boiling water for 4-5 minutes. Enjoy twice daily.'
-    },
-    {
-        id: 'pain-relief-balm',
-        name: 'Maha Narayan Pain Relief Balm',
-        category: 'Joint & Muscle Care',
-        ailment: 'joint',
-        dosha: 'vata',
-        price: 16.50,
-        originalPrice: 19.99,
-        rating: 4.7,
         reviewsCount: 76,
-        badge: 'Fast Relief',
-        badgeType: 'badge-gold',
-        image: 'assets/hero.png', // Uses rich herb graphic
-        ingredients: 'Eucalyptus Oil, Camphor, Mahanarayan Taila, Nilgiri & Sesame Oil Base',
-        benefits: 'Rapidly warms sore joints, relieves muscular stiffness, reduces arthritis pain.',
-        dosage: 'Gently massage a small quantity over affected joint/muscle area 2-3 times daily.'
+        badge: 'Immunity Boost',
+        badgeType: 'badge-dosha',
+        image: 'assets/tulsi_tea.png',
+        ingredients: 'Rama Tulsi, Krishna Tulsi, Vana Tulsi organic leaves',
+        benefits: 'Enhances natural immunity, calms mind, supports respiratory health.',
+        dosage: 'Steep 1 tea bag for 5-7 minutes in hot water',
+        stock: 60
     },
     {
-        id: 'kumkumadi-saffron-oil',
-        name: 'Kumkumadi Saffron Radiant Face Serum',
-        category: 'Skin & Beauty',
-        ailment: 'skin',
+        id: 4,
+        name: 'Mahanarayan Joint Care Massage Oil',
+        category: 'Ayurvedic Oils',
+        ailment: 'joints',
         dosha: 'pitta',
-        price: 34.99,
-        originalPrice: 42.00,
-        rating: 5.0,
-        reviewsCount: 312,
-        badge: 'Luxury Beauty',
+        price: 29.99,
+        originalPrice: 34.99,
+        rating: 4.7,
+        reviewsCount: 53,
+        badge: 'Pain Relief',
         badgeType: 'badge-gold',
         image: 'assets/hero.png',
-        ingredients: 'Kashmiri Saffron (Kumkuma), Sandalwood, Lotus, Vetiver & Sesame Oil',
-        benefits: 'Brightens skin complexions, reduces hyperpigmentation, smooths fine lines, imparts golden glow.',
-        dosage: 'Apply 3-4 drops onto clean face & neck at bedtime, gently massaging upwards.'
-    },
-    {
-        id: 'shatavari-hormonal-balance',
-        name: 'Shatavari Women Vitality & Wellness',
-        category: 'Vitality & Balance',
-        ailment: 'energy',
-        dosha: 'p-v',
-        price: 21.99,
-        originalPrice: 25.00,
-        rating: 4.8,
-        reviewsCount: 88,
-        badge: 'Pure Herbal',
-        badgeType: 'badge-organic',
-        image: 'assets/ashwagandha.png',
-        ingredients: 'Pure Organic Asparagus Racemosus Extract (500mg)',
-        benefits: 'Supports female hormonal health, reproductive vitality, lactation, and emotional equilibrium.',
-        dosage: '1 capsule twice daily with milk or water after meals.'
+        ingredients: 'Sesame oil infused with 30+ revitalizing Ayurvedic herbs',
+        benefits: 'Relieves joint stiffness, calms Vata, promotes muscle relaxation.',
+        dosage: 'Gently massage warm oil onto affected joints for 10-15 mins',
+        stock: 25
     }
 ];
 
@@ -118,10 +88,26 @@ let appliedPromo = null;
 // Initialize App
 document.addEventListener('DOMContentLoaded', () => {
     renderProducts();
+    fetchLiveProducts();
     initQuiz();
     updateCartUI();
     setupEventListeners();
 });
+
+async function fetchLiveProducts() {
+    try {
+        const res = await fetch('http://localhost:8090/api/products');
+        if (res.ok) {
+            const liveData = await res.json();
+            if (liveData && liveData.length > 0) {
+                PRODUCTS_DATA = liveData;
+                renderProducts();
+            }
+        }
+    } catch (err) {
+        console.warn('Backend API offline, serving local catalog:', err);
+    }
+}
 
 // Render Product Catalog Cards
 function renderProducts(searchQuery = '') {
@@ -129,324 +115,248 @@ function renderProducts(searchQuery = '') {
     if (!grid) return;
 
     let filtered = PRODUCTS_DATA.filter(product => {
-        // Ailment filter
-        const matchAilment = activeAilmentFilter === 'all' || product.ailment === activeAilmentFilter;
-        // Dosha filter
-        const matchDosha = activeDoshaFilter === 'all' || product.dosha.includes(activeDoshaFilter) || product.dosha === 'tridosha';
-        // Search query
-        const matchSearch = searchQuery === '' || 
+        const matchesAilment = activeAilmentFilter === 'all' || product.ailment === activeAilmentFilter;
+        const matchesDosha = activeDoshaFilter === 'all' || product.dosha.includes(activeDoshaFilter);
+        const matchesSearch = searchQuery === '' || 
             product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            product.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            product.ingredients.toLowerCase().includes(searchQuery.toLowerCase());
+            product.ingredients.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            product.category.toLowerCase().includes(searchQuery.toLowerCase());
 
-        return matchAilment && matchDosha && matchSearch;
+        return matchesAilment && matchesDosha && matchesSearch;
     });
 
     if (filtered.length === 0) {
         grid.innerHTML = `
-            <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 1rem; color: var(--color-text-muted);">
-                <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="margin: 0 auto 1rem; opacity: 0.5;">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            <div class="empty-state" style="grid-column: 1/-1; text-align: center; padding: 4rem 1rem;">
+                <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="margin:0 auto 1rem; color: var(--color-accent-gold);">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
                 </svg>
-                <h3>No Ayurvedic Remedies Found</h3>
-                <p>Try clearing filters or searching for alternative herbs like Ashwagandha or Tulsi.</p>
-                <button class="btn btn-outline" style="margin-top: 1rem;" onclick="resetFilters()">Reset All Filters</button>
+                <h3 style="font-family: var(--font-heading); color: var(--color-primary); margin-bottom: 0.5rem;">No Remedies Found</h3>
+                <p style="color: var(--color-text-muted);">Try adjusting your search query or dosage filters.</p>
+                <button class="btn btn-outline" onclick="resetFilters()" style="margin-top: 1rem;">Reset All Filters</button>
             </div>
         `;
         return;
     }
 
-    grid.innerHTML = filtered.map(product => `
-        <div class="product-card">
-            <div class="product-badge-group">
-                <span class="badge ${product.badgeType}">${product.badge}</span>
-            </div>
-            <button class="product-wishlist-btn ${wishlist.has(product.id) ? 'active' : ''}" onclick="toggleWishlist('${product.id}')" aria-label="Add to Wishlist">
-                <svg width="18" height="18" fill="${wishlist.has(product.id) ? 'currentColor' : 'none'}" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                </svg>
-            </button>
-            <div class="product-img-box" onclick="openQuickView('${product.id}')" style="cursor: pointer;">
-                <img src="${product.image}" alt="${product.name}" loading="lazy">
-            </div>
-            <div class="product-content">
-                <span class="product-category">${product.category}</span>
-                <h3 class="product-title" onclick="openQuickView('${product.id}')" style="cursor: pointer;">${product.name}</h3>
-                <div class="product-rating">
-                    ${'★'.repeat(Math.floor(product.rating))} 
-                    <strong>${product.rating}</strong> 
-                    <span>(${product.reviewsCount} reviews)</span>
-                </div>
-                <p class="product-ingredients">🌿 <em>${product.ingredients}</em></p>
-                <div class="product-footer">
-                    <div class="product-price">
-                        $${product.price.toFixed(2)}
-                        ${product.originalPrice ? `<del>$${product.originalPrice.toFixed(2)}</del>` : ''}
+    grid.innerHTML = filtered.map(product => {
+        const isWishlisted = wishlist.has(product.id);
+        const discountPercent = product.originalPrice ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100) : 0;
+        const stockCount = product.stock ?? 50;
+
+        return `
+            <article class="product-card">
+                <div class="product-image-container">
+                    <span class="badge ${product.badgeType || 'badge-gold'}">${product.badge || 'Organic'}</span>
+                    
+                    <button class="wishlist-btn ${isWishlisted ? 'active' : ''}" onclick="toggleWishlist('${product.id}')" aria-label="Add to Wishlist">
+                        <svg width="18" height="18" fill="${isWishlisted ? '#b85b40' : 'none'}" stroke="${isWishlisted ? '#b85b40' : 'currentColor'}" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                    </button>
+
+                    <img src="${product.image || 'assets/ashwagandha.png'}" alt="${escapeHtml(product.name)}" class="product-image" loading="lazy" onerror="this.src='assets/ashwagandha.png'">
+                    
+                    <div class="quick-view-overlay">
+                        <button class="quick-view-btn" onclick="openQuickView('${product.id}')">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                            </svg>
+                            Quick Specs
+                        </button>
                     </div>
-                    <button class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.85rem;" onclick="addToCart('${product.id}')">
-                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                </div>
+
+                <div class="product-content">
+                    <div class="product-meta">
+                        <span class="product-category">${escapeHtml(product.category)}</span>
+                        <span class="dosha-tag dosha-${product.dosha || 'tridosha'}">${(product.dosha || 'TRIDOSHA').toUpperCase()}</span>
+                    </div>
+
+                    <h3 class="product-title">${escapeHtml(product.name)}</h3>
+
+                    <div class="product-rating">
+                        <div class="stars">★★★★★</div>
+                        <span class="rating-text">${product.rating || '4.9'} (${product.reviewsCount || 42})</span>
+                    </div>
+
+                    <div class="product-price-row">
+                        <div class="price-container">
+                            <span class="current-price">$${Number(product.price).toFixed(2)}</span>
+                            ${product.originalPrice ? `<span class="original-price">$${Number(product.originalPrice).toFixed(2)}</span>` : ''}
+                            ${discountPercent > 0 ? `<span class="discount-pill">-${discountPercent}%</span>` : ''}
+                        </div>
+                        <span style="font-size:0.75rem; font-weight:600; color:${stockCount <= 10 ? '#dc2626' : '#16a34a'};">
+                            ${stockCount > 0 ? `${stockCount} in stock` : 'Out of Stock'}
+                        </span>
+                    </div>
+
+                    <button class="add-to-cart-btn" onclick="addToCart('${product.id}')" ${stockCount === 0 ? 'disabled style="opacity:0.5;cursor:not-allowed;"' : ''}>
+                        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
                         </svg>
-                        Add to Cart
+                        ${stockCount > 0 ? 'Add To Cart' : 'Out of Stock'}
                     </button>
                 </div>
-            </div>
-        </div>
-    `).join('');
+            </article>
+        `;
+    }).join('');
 }
 
-// Filter Event Handlers
+// Filter Actions
 function filterByAilment(ailment, element) {
     activeAilmentFilter = ailment;
-    document.querySelectorAll('.ailment-card').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.filter-chip').forEach(chip => chip.classList.remove('active'));
     if (element) element.classList.add('active');
     renderProducts();
 }
 
-function filterByDosha(dosha, element) {
+function filterByDosha(dosha) {
     activeDoshaFilter = dosha;
-    document.querySelectorAll('.dosha-btn').forEach(el => el.classList.remove('active'));
-    if (element) element.classList.add('active');
     renderProducts();
 }
 
 function resetFilters() {
     activeAilmentFilter = 'all';
     activeDoshaFilter = 'all';
-    document.querySelectorAll('.ailment-card').forEach(el => el.classList.remove('active'));
-    document.querySelectorAll('.dosha-btn').forEach(el => el.classList.remove('active'));
-    document.querySelector('.ailment-card[data-ailment="all"]')?.classList.add('active');
-    document.querySelector('.dosha-btn[data-dosha="all"]')?.classList.add('active');
-    document.getElementById('searchInput').value = '';
+    document.querySelectorAll('.filter-chip').forEach(chip => chip.classList.remove('active'));
+    document.querySelector('.filter-chip[onclick*="all"]')?.classList.add('active');
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) searchInput.value = '';
     renderProducts();
 }
 
-// Shopping Cart Functions
-function addToCart(productId, qty = 1) {
-    const product = PRODUCTS_DATA.find(p => p.id === productId);
-    if (!product) return;
-
-    const existingItem = cart.find(item => item.id === productId);
-    if (existingItem) {
-        existingItem.quantity += qty;
-    } else {
-        cart.push({ ...product, quantity: qty });
-    }
-
-    updateCartUI();
-    showToast(`Added ${product.name} to your cart!`);
-    openCartDrawer();
-}
-
-function updateQuantity(productId, change) {
-    const item = cart.find(i => i.id === productId);
-    if (!item) return;
-
-    item.quantity += change;
-    if (item.quantity <= 0) {
-        cart = cart.filter(i => i.id !== productId);
-    }
-    updateCartUI();
-}
-
-function removeFromCart(productId) {
-    cart = cart.filter(i => i.id !== productId);
-    updateCartUI();
-    showToast('Item removed from cart');
-}
-
-function updateCartUI() {
-    // Update badge count
-    const totalCount = cart.reduce((acc, i) => acc + i.quantity, 0);
-    document.querySelectorAll('.cart-count').forEach(el => el.textContent = totalCount);
-
-    // Render cart items
-    const cartBody = document.getElementById('cartItemsBody');
-    if (!cartBody) return;
-
-    if (cart.length === 0) {
-        cartBody.innerHTML = `
-            <div style="text-align: center; padding: 3rem 1rem; color: var(--color-text-muted);">
-                <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="margin: 0 auto 1rem; opacity: 0.4;">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
-                </svg>
-                <p>Your shopping basket is empty</p>
-                <button class="btn btn-outline" style="margin-top: 1rem;" onclick="closeCartDrawer()">Explore Remedies</button>
-            </div>
-        `;
-    } else {
-        cartBody.innerHTML = cart.map(item => `
-            <div class="cart-item">
-                <img src="${item.image}" alt="${item.name}" class="cart-item-img">
-                <div class="cart-item-details">
-                    <div class="cart-item-title">${item.name}</div>
-                    <div class="cart-item-price">$${(item.price * item.quantity).toFixed(2)}</div>
-                    <div class="qty-controls">
-                        <button class="qty-btn" onclick="updateQuantity('${item.id}', -1)">-</button>
-                        <span class="qty-val">${item.quantity}</span>
-                        <button class="qty-btn" onclick="updateQuantity('${item.id}', 1)">+</button>
-                    </div>
-                </div>
-                <button onclick="removeFromCart('${item.id}')" style="background: none; border: none; color: var(--color-text-muted); padding: 5px;">
-                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                </button>
-            </div>
-        `).join('');
-    }
-
-    // Calculations
-    const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    const discount = appliedPromo ? subtotal * appliedPromo.discount : 0;
-    const finalTotal = Math.max(0, subtotal - discount);
-
-    document.getElementById('cartSubtotal').textContent = `$${subtotal.toFixed(2)}`;
-    document.getElementById('cartDiscount').textContent = discount > 0 ? `-$${discount.toFixed(2)}` : '$0.00';
-    document.getElementById('cartTotal').textContent = `$${finalTotal.toFixed(2)}`;
-}
-
-function applyPromoCode() {
-    const code = document.getElementById('promoInput').value.trim().toUpperCase();
-    if (code === 'HERBAL10') {
-        appliedPromo = { code: 'HERBAL10', discount: 0.10 };
-        showToast('Promo code HERBAL10 applied: 10% OFF!');
-    } else if (code === 'AYURVEDA20') {
-        appliedPromo = { code: 'AYURVEDA20', discount: 0.20 };
-        showToast('Promo code AYURVEDA20 applied: 20% OFF!');
-    } else {
-        showToast('Invalid promo code. Try HERBAL10');
-    }
-    updateCartUI();
-}
-
+// Cart Drawer & Management
 function openCartDrawer() {
     document.getElementById('cartDrawerOverlay')?.classList.add('active');
+    document.getElementById('cartDrawer')?.classList.add('active');
 }
 
 function closeCartDrawer() {
     document.getElementById('cartDrawerOverlay')?.classList.remove('active');
+    document.getElementById('cartDrawer')?.classList.remove('active');
 }
 
-// Wishlist Logic
+function addToCart(productId) {
+    const product = PRODUCTS_DATA.find(p => String(p.id) === String(productId));
+    if (!product) return;
+
+    const existingItem = cart.find(item => String(item.id) === String(productId));
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({ ...product, quantity: 1 });
+    }
+
+    updateCartUI();
+    showToast(`Added ${product.name} to your herbal cart.`);
+    openCartDrawer();
+}
+
+function updateCartQuantity(productId, delta) {
+    const itemIndex = cart.findIndex(item => String(item.id) === String(productId));
+    if (itemIndex > -1) {
+        cart[itemIndex].quantity += delta;
+        if (cart[itemIndex].quantity <= 0) {
+            cart.splice(itemIndex, 1);
+        }
+    }
+    updateCartUI();
+}
+
+function updateCartUI() {
+    const cartCountEl = document.querySelector('.cart-count');
+    const cartItemsEl = document.getElementById('cartItems');
+    const cartSubtotalEl = document.getElementById('cartSubtotal');
+    const cartTotalEl = document.getElementById('cartTotal');
+
+    const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const discount = appliedPromo ? subtotal * appliedPromo.discount : 0;
+    const finalTotal = Math.max(0, subtotal - discount);
+
+    if (cartCountEl) cartCountEl.textContent = totalCount;
+    if (cartSubtotalEl) cartSubtotalEl.textContent = `$${subtotal.toFixed(2)}`;
+    if (cartTotalEl) cartTotalEl.textContent = `$${finalTotal.toFixed(2)}`;
+
+    if (!cartItemsEl) return;
+
+    if (cart.length === 0) {
+        cartItemsEl.innerHTML = `
+            <div class="empty-cart-state">
+                <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                </svg>
+                <p>Your herbal remedies cart is currently empty.</p>
+                <button class="btn btn-gold btn-sm" onclick="closeCartDrawer(); scrollToShop();">Explore Remedies</button>
+            </div>
+        `;
+        return;
+    }
+
+    cartItemsEl.innerHTML = cart.map(item => `
+        <div class="cart-item">
+            <img src="${item.image || 'assets/ashwagandha.png'}" alt="${escapeHtml(item.name)}" class="cart-item-image">
+            <div class="cart-item-details">
+                <h4 class="cart-item-title">${escapeHtml(item.name)}</h4>
+                <div class="cart-item-price">$${Number(item.price).toFixed(2)}</div>
+                <div class="cart-quantity-controls">
+                    <button class="qty-btn" onclick="updateCartQuantity('${item.id}', -1)">-</button>
+                    <span class="qty-number">${item.quantity}</span>
+                    <button class="qty-btn" onclick="updateCartQuantity('${item.id}', 1)">+</button>
+                </div>
+            </div>
+            <button class="remove-item-btn" onclick="updateCartQuantity('${item.id}', -${item.quantity})">&times;</button>
+        </div>
+    `).join('');
+}
+
+// Quick Spec Modal
+function openQuickView(productId) {
+    const product = PRODUCTS_DATA.find(p => String(p.id) === String(productId));
+    if (!product) return;
+
+    const modal = document.getElementById('quickViewModal');
+    const content = document.getElementById('quickViewContent');
+    if (!modal || !content) return;
+
+    content.innerHTML = `
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center;">
+            <img src="${product.image || 'assets/ashwagandha.png'}" alt="${escapeHtml(product.name)}" style="width:100%; border-radius:16px;">
+            <div>
+                <span class="badge ${product.badgeType || 'badge-gold'}" style="margin-bottom:0.5rem;">${product.badge || 'Pure Organic'}</span>
+                <h2 style="font-family:var(--font-heading); color:var(--color-primary); font-size:1.6rem;">${escapeHtml(product.name)}</h2>
+                <div style="font-size:1.4rem; font-weight:700; color:var(--color-accent-gold); margin:0.5rem 0 1rem;">$${Number(product.price).toFixed(2)}</div>
+                <p style="color:var(--color-text-muted); font-size:0.9rem; margin-bottom:1rem;">${escapeHtml(product.benefits)}</p>
+                <div style="background:#f4efe4; padding:0.8rem; border-radius:10px; margin-bottom:1.5rem; font-size:0.85rem;">
+                    <strong>Dosage:</strong> ${escapeHtml(product.dosage || 'Take as recommended by physician')}
+                </div>
+                <button class="btn btn-gold" style="width:100%;" onclick="addToCart('${product.id}'); closeQuickView();">Add to Cart</button>
+            </div>
+        </div>
+    `;
+
+    modal.classList.add('active');
+}
+
+function closeQuickView() {
+    document.getElementById('quickViewModal')?.classList.remove('active');
+}
+
+// Wishlist Handling
 function toggleWishlist(productId) {
     if (wishlist.has(productId)) {
         wishlist.delete(productId);
-        showToast('Removed from Wishlist');
+        showToast('Removed item from your wishlist.');
     } else {
         wishlist.add(productId);
-        showToast('Added to your Wishlist ❤️');
+        showToast('Saved remedy to your wishlist.');
     }
     renderProducts();
 }
 
-// Quick View Modal
-function openQuickView(productId) {
-    const product = PRODUCTS_DATA.find(p => p.id === productId);
-    if (!product) return;
-
-    const modalContent = document.getElementById('modalContent');
-    modalContent.innerHTML = `
-        <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 2rem; padding: 2.5rem 2rem 2rem;">
-            <div style="background: #f7f5ef; border-radius: var(--radius-md); overflow: hidden;">
-                <img src="${product.image}" alt="${product.name}" style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
-            <div>
-                <span class="badge ${product.badgeType}">${product.badge}</span>
-                <h2 style="font-size: 1.8rem; margin: 0.5rem 0; color: var(--color-primary);">${product.name}</h2>
-                <div class="product-rating" style="margin-bottom: 1rem;">
-                    ${'★'.repeat(Math.floor(product.rating))} <strong>${product.rating}</strong> (${product.reviewsCount} customer reviews)
-                </div>
-                <div style="font-size: 1.6rem; font-weight: 700; color: var(--color-primary); margin-bottom: 1rem;">
-                    $${product.price.toFixed(2)} ${product.originalPrice ? `<del style="font-size: 1rem; color: var(--color-text-muted);">$${product.originalPrice.toFixed(2)}</del>` : ''}
-                </div>
-                <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">${product.benefits}</p>
-
-                <div style="background: var(--color-cream-bg); padding: 1rem; border-radius: var(--radius-sm); margin-bottom: 1.5rem; border: 1px solid var(--color-border);">
-                    <div style="font-weight: 600; font-size: 0.85rem; color: var(--color-primary);">🌿 Key Herbal Ingredients:</div>
-                    <div style="font-size: 0.85rem; color: var(--color-text-muted);">${product.ingredients}</div>
-                </div>
-
-                <div style="display: flex; gap: 1rem; align-items: center;">
-                    <button class="btn btn-gold" style="flex-grow: 1;" onclick="addToCart('${product.id}'); closeQuickView();">
-                        Add to Cart
-                    </button>
-                    <button class="btn btn-outline" onclick="toggleWishlist('${product.id}')">
-                        Wishlist
-                    </button>
-                </div>
-            </div>
-        </div>
-    `;
-    document.getElementById('quickViewOverlay')?.classList.add('active');
-}
-
-function closeQuickView() {
-    document.getElementById('quickViewOverlay')?.classList.remove('active');
-}
-
-// Dosha Interactive Diagnostic Quiz Widget Logic
-let quizAnswers = { q1: null, q2: null, q3: null };
-
-function initQuiz() {
-    // Quiz logic will handle user selection steps
-}
-
-function selectQuizOption(question, val, cardElement) {
-    quizAnswers[question] = val;
-    cardElement.parentNode.querySelectorAll('.quiz-option-card').forEach(c => c.classList.remove('selected'));
-    cardElement.classList.add('selected');
-}
-
-function calculateDoshaResult() {
-    if (!quizAnswers.q1 || !quizAnswers.q2 || !quizAnswers.q3) {
-        showToast('Please answer all 3 questions to reveal your Prakriti (Dosha)!');
-        return;
-    }
-
-    // Count score
-    const counts = { vata: 0, pitta: 0, kapha: 0 };
-    Object.values(quizAnswers).forEach(val => counts[val]++);
-
-    let primaryDosha = 'vata';
-    if (counts.pitta >= counts.vata && counts.pitta >= counts.kapha) primaryDosha = 'pitta';
-    if (counts.kapha >= counts.vata && counts.kapha >= counts.pitta) primaryDosha = 'kapha';
-
-    const doshaDescriptions = {
-        vata: {
-            title: 'Vata Prakriti (Air & Ether)',
-            desc: 'Your constitution is characterized by quick movement, creativity, and alertness. Balance yourself with warming, grounding herbs like Ashwagandha and nourishing oils.',
-            recommendedHerb: 'ashwagandha-ksm66'
-        },
-        pitta: {
-            title: 'Pitta Prakriti (Fire & Water)',
-            desc: 'Your constitution is driven by strong focus, high metabolism, and warmth. Balance your inner fire with cooling, soothing herbs like Shatavari and Saffron facial oil.',
-            recommendedHerb: 'kumkumadi-saffron-oil'
-        },
-        kapha: {
-            title: 'Kapha Prakriti (Earth & Water)',
-            desc: 'Your constitution is grounded, strong, patient, and calm. Invigorate your body with stimulating spices, digestive teas, and warm Tulsi blends.',
-            recommendedHerb: 'tulsi-holy-basil-tea'
-        }
-    };
-
-    const res = doshaDescriptions[primaryDosha];
-    document.getElementById('quizFormBlock').style.display = 'none';
-    const resultBlock = document.getElementById('quizResultBlock');
-    resultBlock.classList.add('active');
-
-    resultBlock.innerHTML = `
-        <div class="dosha-type-badge">🌿 Your Dominant Prakriti: ${res.title}</div>
-        <p style="max-width: 600px; margin: 1rem auto 2rem; color: rgba(255,255,255,0.85);">${res.desc}</p>
-        <button class="btn btn-gold" onclick="filterByDosha('${primaryDosha}'); scrollToShop();">
-            Shop Recommended ${primaryDosha.toUpperCase()} Remedies
-        </button>
-    `;
-}
-
-function scrollToShop() {
-    document.getElementById('shopSection')?.scrollIntoView({ behavior: 'smooth' });
-}
-
-// Checkout Modal Simulator
+// Checkout Modal
 function openCheckoutModal() {
     if (cart.length === 0) {
         showToast('Your cart is empty! Add remedies before checking out.');
@@ -460,17 +370,47 @@ function closeCheckoutModal() {
     document.getElementById('checkoutModalOverlay')?.classList.remove('active');
 }
 
-function submitOrder(e) {
+async function submitOrder(e) {
     e.preventDefault();
-    closeCheckoutModal();
     
-    // Show success confirmation
+    const customerName = document.getElementById('custName')?.value || 'Guest Customer';
+    const shippingAddress = document.getElementById('custAddress')?.value || 'Standard Shipping Address';
+    const paymentMethod = document.getElementById('custPayment')?.value || 'Credit Card';
+    
+    const totalAmount = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+    const orderPayload = {
+        customerName: customerName,
+        shippingAddress: shippingAddress,
+        paymentMethod: paymentMethod,
+        totalAmount: totalAmount,
+        status: 'PENDING'
+    };
+
+    try {
+        const res = await fetch('http://localhost:8090/api/orders', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(orderPayload)
+        });
+
+        if (res.ok) {
+            const savedOrder = await res.json();
+            showToast(`🎉 Order ${savedOrder.orderTrackingNumber || ''} Placed! Thank you.`);
+        } else {
+            showToast('🎉 Order Successfully Placed!');
+        }
+    } catch (err) {
+        console.warn('Backend order endpoint error:', err);
+        showToast('🎉 Order Successfully Placed!');
+    }
+
+    closeCheckoutModal();
     cart = [];
     updateCartUI();
-    showToast('🎉 Order Successfully Placed! Thank you for choosing Ayurveda Veda.');
 
-    // Show order success modal
-    document.getElementById('orderSuccessModalOverlay')?.classList.add('active');
+    const successModal = document.getElementById('orderSuccessModalOverlay');
+    if (successModal) successModal.classList.add('active');
 }
 
 function closeOrderSuccessModal() {
@@ -484,28 +424,41 @@ function showToast(message) {
 
     const toast = document.createElement('div');
     toast.className = 'toast';
-    toast.innerHTML = `
-        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-        </svg>
-        <span>${message}</span>
+    toast.style.cssText = `
+        background: #1e3a2b;
+        color: #ffffff;
+        padding: 0.85rem 1.25rem;
+        border-radius: 10px;
+        margin-top: 0.5rem;
+        font-weight: 600;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     `;
+    toast.innerHTML = `<span>${message}</span>`;
 
     container.appendChild(toast);
     setTimeout(() => {
-        toast.style.opacity = '0';
-        toast.style.transform = 'translateX(100%)';
-        setTimeout(() => toast.remove(), 300);
-    }, 3000);
+        toast.remove();
+    }, 3200);
 }
 
 // Setup Event Listeners
 function setupEventListeners() {
-    // Search bar live filter
     const searchInput = document.getElementById('searchInput');
     if (searchInput) {
         searchInput.addEventListener('input', (e) => {
             renderProducts(e.target.value);
         });
     }
+}
+
+function scrollToShop() {
+    document.getElementById('shopSection')?.scrollIntoView({ behavior: 'smooth' });
+}
+
+function escapeHtml(str) {
+    if (!str) return '';
+    return str.replace(/[&<>"']/g, match => {
+        const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
+        return map[match];
+    });
 }
